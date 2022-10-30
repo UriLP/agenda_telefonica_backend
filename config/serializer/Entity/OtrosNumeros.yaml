@@ -1,0 +1,6 @@
+App\Entity\OtrosNumeros:
+  attributes:
+    id:
+      groups: ["contacto"]
+    telefono:
+      groups: ["contacto"]

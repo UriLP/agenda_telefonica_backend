@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ContactoRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ContactoRepository::class)]
@@ -27,6 +29,14 @@ class Contacto
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $email = null;
+
+    #[ORM\ManyToMany(targetEntity: OtrosNumeros::class, inversedBy: 'contactos')]
+    private Collection $otrosNumeros;
+
+    public function __construct()
+    {
+        $this->otrosNumeros = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -89,6 +99,30 @@ class Contacto
     public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, OtrosNumeros>
+     */
+    public function getOtrosNumeros(): Collection
+    {
+        return $this->otrosNumeros;
+    }
+
+    public function addOtrosNumero(OtrosNumeros $otrosNumero): self
+    {
+        if (!$this->otrosNumeros->contains($otrosNumero)) {
+            $this->otrosNumeros->add($otrosNumero);
+        }
+
+        return $this;
+    }
+
+    public function removeOtrosNumero(OtrosNumeros $otrosNumero): self
+    {
+        $this->otrosNumeros->removeElement($otrosNumero);
 
         return $this;
     }

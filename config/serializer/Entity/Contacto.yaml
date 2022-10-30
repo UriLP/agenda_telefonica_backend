@@ -12,3 +12,5 @@ App\Entity\Contacto:
             groups: ['contacto']
         email:
             groups: ['contacto']
+        otrosNumeros:
+            groups: ['contacto']
