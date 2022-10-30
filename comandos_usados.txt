@@ -1,0 +1,59 @@
+-- # Comando para crear el proyecto con symfony
+composer create-project symfony/skeleton:"6.1.*" agenda_telefonica
+
+-- # Cambiar de directorio al proyecto
+cd agenda_telefonica
+
+-- # Iniciar el Servidor
+php -S localhost:8000 -t public
+
+-- # En el archivo .env puse esta linea para la base de datos
+DATABASE_URL="mysql://root@127.0.0.1:3306/agenda_telefonica?serverVersion=5.7"
+
+-- # Me pedia esta linea de comando para crear la base de datos
+composer require symfony/orm-pack
+
+-- # Comando para crear la base de datos
+php bin/console doctrine:database:create
+
+-- # Me pedia esta linea de comando para poder crear una tabla
+composer require symfony/maker-bundle --dev
+
+-- # Comando para crear una tabla/entity
+php bin/console make:entity
+
+-- # Comando para actualizar los cambios en la base de datos
+php bin/console doctrine:schema:update --force
+
+-- # Crear un controllador
+php bin/console make:controller
+
+-- # Migraciones
+php bin/console make:migration
+
+-- # Ejectuar las migraciones
+php bin/console doctrine:migrations:migrate
+
+-- # 
+composer require friendsofsymfony/rest-bundle
+
+-- # serializer
+composer require symfony/serializer-pack
+
+-- # validator twig annotations
+composer require symfony/validator twig doctrine/annotations
+
+-- # sensio template
+composer require sensio/framework-extra-bundle
+
+-- # Formularios
+composer require symfony/form symfony/framework-bundle symfony/validator
+composer require symfony/form
+
+-- # MYSQL --
+
+INSERT INTO text VALUES (null,'Pablo'), (null,'Uriel'), (null,'Angel'), (null,'Sebas'), (null,'Rafa');
+
+
+
+

@@ -1,0 +1,37 @@
+App\Entity\Contacto:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length: 
+                min: 3 
+                max: 250
+                minMessage: El nombre debe tener al menos 3 caracteres
+                maxMessage: El nombre debe tener como máximo 250 caracteres
+        apellido:
+            - NotBlank: ~
+            - Length: 
+                min: 3 
+                max: 250
+                minMessage: El apellido debe tener al menos 3 caracteres
+                maxMessage: El apellido debe tener como máximo 250 caracteres
+        numero:
+            - NotBlank: ~
+            - Length: 
+                min: 3 
+                max: 15
+                minMessage: El numero debe tener al menos 3 caracteres
+                maxMessage: El numero debe tener como máximo 15 caracteres
+        direccion:
+            - NotBlank: ~
+            - Length: 
+                min: 5
+                max: 250
+                minMessage: La direccion debe tener al menos 5 caracteres
+                maxMessage: La direccion debe tener como máximo 15 caracteres
+        email:
+            - NotBlank: ~
+            - Length: 
+                min: 5
+                max: 250
+                minMessage: El correo debe tener al menos 5 caracteres
+                maxMessage: El correo debe tener como máximo 15 caracteres
