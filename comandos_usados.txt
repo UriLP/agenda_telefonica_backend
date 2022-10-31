@@ -50,10 +50,4 @@ composer require sensio/framework-extra-bundle
 composer require symfony/form symfony/framework-bundle symfony/validator
 composer require symfony/form
 
--- # MYSQL --
-
-INSERT INTO text VALUES (null,'Pablo'), (null,'Uriel'), (null,'Angel'), (null,'Sebas'), (null,'Rafa');
-
-
-
 
